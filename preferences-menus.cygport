@@ -1,0 +1,22 @@
+NAME="preferences-menus"
+VERSION=1
+RELEASE=1
+CATEGORY="X11"
+SUMMARY="Categorized submenus for the Preferences menu"
+DESCRIPTION="Categorized sub-menus for the GNOME/KDE/MATE Preferences
+menu, for better usability and easy access of preferences panels."
+HOMEPAGE="http://pkgs.fedoraproject.org/cgit/preferences-menus.git"
+SRC_URI="http://pkgs.fedoraproject.org/cgit/preferences-menus.git/plain/preferences-categories.menu"
+SRC_DIR=.
+
+ARCH=noarch
+
+REQUIRES="redhat-menus"
+
+src_compile() { :; }
+
+src_install() {
+	cd ${S}
+	insinto /etc/xdg/menus/preferences-merged
+	doins *.menu
+}
